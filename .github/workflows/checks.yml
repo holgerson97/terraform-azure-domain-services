@@ -1,0 +1,40 @@
+name: Terraform-Configuration-Validate
+
+on: 
+  push:
+    branches:
+      - main
+    paths:
+      - "module/**"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "module/**"
+  issue_comment:
+    types: [created]     
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./examples
+    steps:
+      - uses: actions/checkout@v2
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 0.14.8
+
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+      
+      - name: Terraform validate
+        id: validate
+        run: terraform validate
