@@ -14,6 +14,8 @@ provider "azurerm" {
     subscription_id = "xxxxxxxxxxxxxxxxxxxxxxx"
     tenant_id       = "xxxxxxxxxxxxxxxxxxxxxxx"
 
+    features {}
+
 }
 
 resource "azurerm_resource_group" "example" {
