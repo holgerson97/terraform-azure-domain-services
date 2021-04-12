@@ -1,4 +1,5 @@
 resource "azurerm_network_security_group" "main" {
+    
     name                 = "${var.rg_name}-nsg"
     location             = var.location
     resource_group_name  = var.rg_name
@@ -76,6 +77,7 @@ resource "azurerm_network_security_group" "main" {
             source_port_ranges                         = []
         },
     ]
+    
 }
 
 resource "azurerm_subnet_network_security_group_association" "main" {
