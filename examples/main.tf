@@ -35,8 +35,8 @@ resource "azurerm_virtual_network" "example" {
 resource "azurerm_subnet" "example" {
 
   name                 = "example-subnet"
-  resource_group_name  = azurerm_resource_group.example.name
-  virtual_network_name = azurerm_virtual_network.example.name
+  resource_group_name  = "example"
+  virtual_network_name = "virtualNetwork1"
   address_prefixes     = ["10.0.1.0/24"]
   
 }
@@ -45,10 +45,10 @@ module "azure_adds" {
 
     source  = "github.com/holgerson97/terraform-azure-domain-services//module"
 
-    rg_name     = azurerm_resource_group.main.name
+    rg_name     = "example"
     location    = "West Europe"
-    subnet_name = azurerm_subnet.example.name
-    subnet_id   = azurerm_subnet.example.id
-    vnet_name   = azurerm_virtual_network.example.name
+    subnet_name = "example-subnet"
+    subnet_id   = ""
+    vnet_name   = "virtualNetwork1"
 
 }
