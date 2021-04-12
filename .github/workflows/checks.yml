@@ -6,11 +6,13 @@ on:
       - main
     paths:
       - "module/**"
+      - "examples/**"
   pull_request:
     branches:
       - main
     paths:
       - "module/**"
+      - "examples/**"
   issue_comment:
     types: [created]     
 
