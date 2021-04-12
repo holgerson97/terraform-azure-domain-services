@@ -47,8 +47,8 @@ module "azure_adds" {
 
     rg_name     = azurerm_resource_group.main.name
     location    = "West Europe"
-    subnet-name = azurerm_subnet.example.name
-    subnet-id   = azurerm_subnet.example.id
-    vnet-name   = azurerm_virtual_network.example.name
+    subnet_name = azurerm_subnet.example.name
+    subnet_id   = azurerm_subnet.example.id
+    vnet_name   = azurerm_virtual_network.example.name
 
 }
