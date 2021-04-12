@@ -48,7 +48,8 @@ module "azure_adds" {
     rg_name     = "example"
     location    = "West Europe"
     subnet_name = "example-subnet"
-    subnet_id   = ""
+    subnet_id   = "123"
     vnet_name   = "virtualNetwork1"
+    domain_name = "example.test.de"
 
 }
